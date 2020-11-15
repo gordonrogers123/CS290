@@ -16,26 +16,24 @@ app.set("port", 8591);
 
 //MUST CITE!
 app.get("/", function (req, res) {
-  var getResponse = "<h1>GET Request Received</h1><br><br>";
   var qParams = [];
   for (var p in req.query){
     qParams.push({'name':p,'value':req.query[p]})
   }
   var context = {};
   context.dataList = qParams;
-  res.render(getResponse + 'get-loopback-improved', context);
+  res.render('GET_request', context);
 });
 
 //MUST CITE!
 app.post("/", function (req, res) {
-  var postResponse = "<h1>POST Request Received</h1><br><br>";
   var qParams = [];
   for (var p in req.query){
     qParams.push({'name':p,'value':req.query[p]})
   }
   var context = {};
   context.dataList = qParams;
-  res.send(postResponse + 'POST_response', context);
+  res.render('POST_request', context);
 });
 
 
