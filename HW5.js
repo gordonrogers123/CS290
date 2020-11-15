@@ -16,27 +16,26 @@ app.set("port", 8591);
 var paramValPair = function (object) {
   var keys = "";
   for (var keys in object) {
-    keys +=
-      "<td>" + keys + "</td>" + "<td>" + object[keys] + "</td>";
+    keys += "<td>" + keys + "</td>" + "<td>" + object[keys] + "</td>";
   }
   return "<tr>" + keys + "</tr>";
 };
 
 app.get("/", function (req, res) {
-  var html = "<h1>GET Request Received</h1><br><br>";
+  var getResponse = "<h1>GET Request Received</h1><br><br>";
   var table = "<table><tr><td>url: " + req.url + "</td>";
   table += "<td>body: " + paramValPair(req.body) + "</td>";
   table += "</tr></table>";
-  res.send(html + table);
+  res.send(getResponse + table);
 });
 
 app.post("/", function (req, res) {
-  var html = "<h1>POST Request Received</h1><br><br>";
+  var postResponse = "<h1>POST Request Received</h1><br><br>";
   var table = "<table><tr>";
   table += "<td>url: " + req.url + "</td>";
   table += "<td>body: " + paramValPair(req.body) + "</td>";
   table += "</tr></table>";
-  res.send(html + table);
+  res.send(postResponse + table);
 });
 
 app.use(function (req, res) {
