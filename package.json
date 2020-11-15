@@ -1,6 +1,5 @@
-
 {
-  "name": "HW5",
+  "name": "hello-world",
   "version": "1.0.0",
   "description": "GET and POST checker with express and node.js",
   "main": "HW5.js",
