@@ -25,7 +25,7 @@ app.get("/", function (req, res) {
   //makes an array of {name, value} pairs from qParams
   var context = {};
   context.dataList = qParams;
-  // renders GET_request.handlebars with give context for 'name' and 'value'
+  // renders _request.handlebars with given context for 'name' and 'value'
   res.render('GET_request', context);
 });
 
@@ -41,7 +41,7 @@ app.post("/", function (req, res) {
   //makes an array of {name, value} pairs from qParams
   var context = {};
   context.dataList = qParams;
-  // renders POST_request.handlebars with give context for 'name' and 'value'
+  // renders POST_request.handlebars with given context for 'name' and 'value'
   res.render('POST_request', context);
 });
 
