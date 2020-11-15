@@ -1,5 +1,4 @@
 var express = require("express");
-
 var app = express();
 var handlebars = require("express-handlebars").create({
   defaultLayout: "main",
@@ -14,25 +13,35 @@ app.set("view engine", "handlebars");
 app.set("port", 8591);
 
 
-//MUST CITE!
+//Taken from Server-Side Form Handling lecture
+//Route handler for GET requests
 app.get("/", function (req, res) {
+  // empty list to hold pairs of query name:params
   var qParams = [];
+  //loops for each query
   for (var p in req.query){
     qParams.push({'name':p,'value':req.query[p]})
   }
+  //makes an array of {name, value} pairs from qParams
   var context = {};
   context.dataList = qParams;
+  // renders GET_request.handlebars with give context for 'name' and 'value'
   res.render('GET_request', context);
 });
 
-//MUST CITE!
+//Taken from Server-Side Form Handling lecture
+//Route handler for POST requests
 app.post("/", function (req, res) {
+  // empty list to hold pairs of query name:params
   var qParams = [];
+  //loops for each query, pushing name:value pair onto qParams
   for (var p in req.query){
     qParams.push({'name':p,'value':req.query[p]})
   }
+  //makes an array of {name, value} pairs from qParams
   var context = {};
   context.dataList = qParams;
+  // renders POST_request.handlebars with give context for 'name' and 'value'
   res.render('POST_request', context);
 });
 
