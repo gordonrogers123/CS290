@@ -14,9 +14,9 @@ app.set("view engine", "handlebars");
 app.set("port", 8591);
 
 var paramValPair = function (object) {
-  var keys = "";
-  for (var keys in object) {
-    keys += "<td>" + keys + "</td>" + "<td>" + object[keys] + "</td>";
+  var keys = [];
+  for (var q in object) {
+    keys += "<td>" + q + "</td>" + "<td>" + object[q] + "</td>";
   }
   return "<tr>" + keys + "</tr>";
 };
@@ -32,8 +32,8 @@ app.get("/", function (req, res) {
 app.post("/", function (req, res) {
   var postResponse = "<h1>POST Request Received</h1><br><br>";
   var table = "<table><tr>";
-  table += "<td>url: " + req.url + "</td>";
-  table += "<td>body: " + paramValPair(req.body) + "</td>";
+  table += "<td>names: " + req.url + "</td>";
+  table += "<td>values: " + paramValPair(req.body) + "</td>";
   table += "</tr></table>";
   res.send(postResponse + table);
 });
